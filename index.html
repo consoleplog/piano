@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.main{
+			width: 800px;
+			margin: 100px auto;
+		}
+		.key{
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			background-color: #f0f;
+			color: #fff;
+			font-size: 30px;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="key">Q</div>
+		<div class="key">W</div>
+		<div class="key">E</div>
+		<div class="key">R</div>
+		<div class="key">T</div>
+		<div class="key">Y</div>
+		<div class="key">U</div>
+	</div>
+	<!-- <audio src="" id="audio"></audio> -->
+	<script type="text/javascript" src="./js/jquery-1.10.2.js"></script>
+	<script type="text/javascript">
+		var musicData=["./sounds/01.mp3","./sounds/02.mp3","./sounds/03.mp3","./sounds/04.mp3","./sounds/05.mp3","./sounds/06.mp3","./sounds/07.mp3"]
+		var audio=document.getElementById('audio')
+		$('.key').mousedown(function(){
+			var myAudio = new Audio();
+			// $("#audio").attr('src',musicData[$(this).index()])
+			myAudio.src=musicData[$(this).index()]
+			myAudio.play()
+		})
+		$(document).keydown(function(e){
+			console.log(e.key)
+			var myAudio = new Audio();
+			switch(e.key){
+				case 'q':myAudio.src=musicData[0];break;
+				case 'w':myAudio.src=musicData[1];break;
+				case 'e':myAudio.src=musicData[2];break;
+				case 'r':myAudio.src=musicData[3];break;
+				case 't':myAudio.src=musicData[4];break;
+				case 'y':myAudio.src=musicData[5];break;
+				case 'u':myAudio.src=musicData[6];break;
+			}
+			myAudio.play()
+		})
+	</script>
+</body>
+</html>
